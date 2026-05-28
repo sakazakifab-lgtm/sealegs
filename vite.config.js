@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
 const repositoryName = process.env.GITHUB_REPOSITORY?.split('/')[1] ?? ''
@@ -17,13 +17,42 @@ const securityHeaders = {
   'X-Frame-Options': 'DENY',
 }
 
-export default defineConfig({
-  base,
-  plugins: [vue()],
-  server: {
-    headers: securityHeaders,
-  },
-  preview: {
-    headers: securityHeaders,
-  },
+function normalizeSiteUrl(siteUrl) {
+  if (!siteUrl) {
+    return ''
+  }
+
+  return siteUrl.endsWith('/') ? siteUrl : `${siteUrl}/`
+}
+
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), '')
+  const siteUrl = normalizeSiteUrl(env.VITE_SITE_URL)
+  const seoUrlMeta = siteUrl
+    ? [
+        `<meta property="og:url" content="${siteUrl}" />`,
+        `<meta property="og:image" content="${new URL('logo.jpg', siteUrl).toString()}" />`,
+        `<meta name="twitter:image" content="${new URL('logo.jpg', siteUrl).toString()}" />`,
+        `<link rel="canonical" href="${siteUrl}" />`,
+      ].join('\n    ')
+    : ''
+
+  return {
+    base,
+    plugins: [
+      vue(),
+      {
+        name: 'inject-seo-url-meta',
+        transformIndexHtml(html) {
+          return html.replace('<!-- seo-url-meta -->', seoUrlMeta)
+        },
+      },
+    ],
+    server: {
+      headers: securityHeaders,
+    },
+    preview: {
+      headers: securityHeaders,
+    },
+  }
 })
