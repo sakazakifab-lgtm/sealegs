@@ -26,4 +26,16 @@ npm run build
 VITE_SITE_URL=https://example.com/ npm run build
 ```
 
+## セキュリティ
+
+ルートの `.htaccess`を配置するとセキュリティヘッダーが有効
+
+- `Content-Security-Policy`
+- `Permissions-Policy`
+- `Referrer-Policy`
+- `X-Content-Type-Options`
+- `X-Frame-Options`
+- `Cross-Origin-Opener-Policy`
+
+
 
