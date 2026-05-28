@@ -1,0 +1,18 @@
+.schedule-section {
+  padding-bottom: 5rem;
+}
+
+.venue-section {
+  padding-top: 0;
+}
+
+.map-card {
+  overflow: hidden;
+}
+
+.venue-map {
+  display: block;
+  width: 100%;
+  min-height: 24rem;
+  border: 0;
+}

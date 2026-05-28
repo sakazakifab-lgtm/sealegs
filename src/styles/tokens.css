@@ -1,0 +1,25 @@
+:root {
+  font-family: 'BIZ UDPGothic', 'Hiragino Sans', 'Yu Gothic UI', 'Meiryo', sans-serif;
+  color: #f8f4ea;
+  color-scheme: dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --page-x: clamp(1.25rem, 4vw, 4rem);
+  --surface: rgba(14, 32, 40, 0.8);
+  --line: rgba(255, 255, 255, 0.12);
+  --gold: #f0d89d;
+  --mist: #b8c7cb;
+  --sea: #6fb8cb;
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+  --transition-base: 180ms ease;
+  --radius-pill: 999px;
+  --radius-panel: 1.5rem;
+  --radius-panel-lg: 1.7rem;
+  --page-background:
+    radial-gradient(circle at top, rgba(210, 156, 60, 0.24), transparent 28%),
+    radial-gradient(circle at 80% 20%, rgba(30, 94, 119, 0.38), transparent 24%),
+    linear-gradient(145deg, #08161d 0%, #102834 52%, #0a1217 100%);
+}

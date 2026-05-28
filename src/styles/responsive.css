@@ -1,0 +1,36 @@
+@media (max-width: 960px) {
+  .notice-grid,
+  .link-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    gap: 2rem;
+    padding-top: 1.4rem;
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  h1 {
+    font-size: clamp(3rem, 18vw, 5.3rem);
+  }
+
+  .timeline-row {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+
+  .venue-map {
+    min-height: 20rem;
+  }
+
+  .primary-button,
+  .secondary-button {
+    width: 100%;
+  }
+}

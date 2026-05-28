@@ -1,0 +1,88 @@
+.page-shell {
+  position: relative;
+  overflow: hidden;
+}
+
+.page-shell::before,
+.page-shell::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(12px);
+}
+
+.page-shell::before {
+  top: 12%;
+  right: -8rem;
+  width: 22rem;
+  height: 22rem;
+  background: radial-gradient(circle, rgba(111, 184, 203, 0.22), transparent 62%);
+}
+
+.page-shell::after {
+  bottom: 8%;
+  left: -8rem;
+  width: 28rem;
+  height: 28rem;
+  background: radial-gradient(circle, rgba(215, 178, 109, 0.18), transparent 62%);
+}
+
+.hero,
+.section,
+.site-footer {
+  position: relative;
+  z-index: 1;
+  padding-inline: var(--page-x);
+}
+
+.hero {
+  display: grid;
+  gap: 3rem;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+}
+
+.section {
+  padding-top: 1.5rem;
+  padding-bottom: 3rem;
+}
+
+.topbar,
+.topbar-links,
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.topbar {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero-copy,
+.section-heading {
+  display: grid;
+}
+
+.hero-copy {
+  gap: 1.5rem;
+  max-width: 48rem;
+  animation: rise 900ms ease both;
+}
+
+.section-heading {
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.site-footer {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-top: 1px solid var(--line);
+  color: var(--mist);
+  font-size: 0.85rem;
+  text-align: center;
+}
