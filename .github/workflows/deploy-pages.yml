@@ -36,6 +36,8 @@ jobs:
         run: npm ci
 
       - name: Build site
+        env:
+          VITE_SITE_URL: https://sakazakifab-lgtm.github.io/sealegs/
         run: npm run build
 
       - name: Upload artifact
